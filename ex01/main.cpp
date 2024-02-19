@@ -2,56 +2,40 @@
 
 int main()
 {
-	std::cout << "\n<<< sample Test >>>" << std::endl;
 	try
 	{
-		Span sp = Span(5);
-		sp.addNumber(6);
-		sp.addNumber(3);
-		sp.addNumber(17);
-		sp.addNumber(9);
-		sp.addNumber(11);
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+		std::cout << "\n<<< sample Test >>>" << std::endl;
+		Span sp = Span(2);
+		sp.addNumber(INT_MAX);
+		sp.addNumber(INT_MIN);
+		sp.printSpan();
+		std::cout << "shortestSpan: " << sp.shortestSpan() << std::endl;
+		std::cout << "longestSpan: " << sp.longestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
-	}	
-
-	std::cout << "\n<<< copy assignment Test >>>" << std::endl;
+	}
 	try
 	{
-		Span sp = Span(5);
-		sp.addNumber(6);
-		sp.addNumber(3);
-		sp.addNumber(17);
-		sp.addNumber(9);
-		sp.addNumber(11);
+		std::cout << "\n<<< copy assignment Test >>>" << std::endl;
+		Span sp = Span(4);
+		sp.addNumber(INT_MAX);
+		sp.addNumber(INT_MIN);
+		sp.addNumber(0);
+		sp.addNumber(0);
 
 		Span copyed;
 		copyed = sp;
-		std::cout << copyed.shortestSpan() << std::endl;
-		std::cout << copyed.longestSpan() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}	
-
-	std::cout << "\n<<< copy constructor Test >>>" << std::endl;
-	try
-	{
-		Span sp = Span(5);
-		sp.addNumber(6);
-		sp.addNumber(3);
-		sp.addNumber(17);
-		sp.addNumber(9);
-		sp.addNumber(11);
-
-		Span copyed(sp);
-		std::cout << copyed.shortestSpan() << std::endl;
-		std::cout << copyed.longestSpan() << std::endl;
+		copyed.printSpan();
+		std::cout << "shortestSpan: " << sp.shortestSpan() << std::endl;
+		std::cout << "longestSpan: " << sp.longestSpan() << std::endl;
+	
+		std::cout << "\n<<< copy constructor Test >>>" << std::endl;
+		Span copyed2(sp);
+		copyed2.printSpan();
+		std::cout << "shortestSpan: " << sp.shortestSpan() << std::endl;
+		std::cout << "longestSpan: " << sp.longestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -62,9 +46,28 @@ int main()
 	try
 	{
 		Span sp = Span(10000);
-		sp.addRandomNumbers(10000);
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+		for (int i = 10000; i > 0; --i)
+			sp.addNumber(i);
+		// sp.printSpan();
+		std::cout << "shortestSpan: " << sp.shortestSpan() << std::endl;
+		std::cout << "longestSpan: " << sp.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}	
+
+	std::cout << "\n<<< no span Test >>>" << std::endl;
+	try
+	{
+		Span sp = Span(5);
+		sp.addNumber(6);
+		sp.addNumber(6);
+		sp.addNumber(6);
+		sp.addNumber(6);
+		sp.addNumber(6);
+		std::cout << "shortestSpan: " << sp.shortestSpan() << std::endl;
+		std::cout << "longestSpan: " << sp.longestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -83,11 +86,23 @@ int main()
 		std::cerr << e.what() << '\n';
 	}	
 
+	std::cout << "\n<<< Error Test for addNumbers >>>" << std::endl;
+	try
+	{
+		Span sp = Span(1);
+		sp.addNumber(6);
+		sp.addNumbers(sp.getItBegin(), sp.getItEnd());
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}	
+
 	std::cout << "\n<<< Error Test for shortestSpan >>>" << std::endl;
 	try
 	{
-		Span sp = Span(3);
-		std::cout << sp.shortestSpan() << std::endl;
+		Span sp = Span(0);
+		std::cout << "shortestSpan: " << sp.shortestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -98,23 +113,14 @@ int main()
 	try
 	{
 		Span sp = Span(2);
-		std::cout << sp.longestSpan() << std::endl;
+		sp.addNumber(6);
+		// sp.addNumber(6);
+		std::cout << "longestSpan: " << sp.longestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
-	}	
-
-	std::cout << "\n<<< Error Test for addRandomNumbers >>>" << std::endl;
-	try
-	{
-		Span sp = Span(1);
-		sp.addRandomNumbers(10000);
 	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}	
 
 	std::cout << std::endl;
 	return 0;

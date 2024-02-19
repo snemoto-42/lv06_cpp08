@@ -5,8 +5,7 @@
 #define RED     "\033[31m"
 
 #include <iostream>
-#include <vector>
-#include <random>
+#include <set>
 
 class Span
 {
@@ -17,13 +16,17 @@ class Span
 		Span(Span const&);
 		Span & operator=(Span const&);
 
-		void addNumber(int);
-		int shortestSpan(void) const;
-		int longestSpan(void) const;
+		void printSpan(void) const;
 
-		void addRandomNumbers(unsigned int);
+		void addNumber(int);
+		unsigned int shortestSpan(void) const;
+		unsigned int longestSpan(void) const;
+
+		std::multiset<int>::iterator getItBegin(void) const;
+		std::multiset<int>::iterator getItEnd(void) const;
+		void addNumbers(std::multiset<int>::iterator, std::multiset<int>::iterator);
 
 	private:
 		unsigned int _len;
-		std::vector<int> _numbers;
+		std::multiset<int> _numbers;
 };

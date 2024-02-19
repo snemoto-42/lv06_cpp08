@@ -37,4 +37,9 @@ re:		fclean all
 
 bonus:	all
 
-.PHONY: all clean fclean re bonus
+do:		re
+		./${NAME}
+		${RMD} $(OBJDIR)
+		${RM} ${NAME}
+
+.PHONY: all clean fclean re bonus do
