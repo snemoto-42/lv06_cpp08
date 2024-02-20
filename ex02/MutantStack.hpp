@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <stack>
+#include "MutantStack.tpp"
 
 template <typename T>
 class MutantStack : public std::stack<T>
