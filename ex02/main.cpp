@@ -31,6 +31,7 @@ int main()
 		while (it != ite)
 		{
 			std::cout << "*it:" << *it << std::endl;
+			std::cout << "++(*it):" << ++(*it) << std::endl;
 			++it;
 		}
 
@@ -55,23 +56,25 @@ int main()
 			++cait;
 		}
 
-		std::cout << "\n>>> const iterator Test" << std::endl;
-		MutantStack<int>::const_iterator cit = mstack.cbegin();
-		MutantStack<int>::const_iterator cite = mstack.cend();
-		while (cit != cite)
-		{
-			std::cout << "*cit:" << *cit << std::endl;
-			++cit;
-		}
-
 		std::cout << "\n>>> reverse iterator Test" << std::endl;
 		MutantStack<int>::reverse_iterator rit = mstack.rbegin();
 		MutantStack<int>::reverse_iterator rite = mstack.rend();
 		while (rit != rite)
 		{
 			std::cout << "*rit:" << *rit << std::endl;
+			std::cout << "++(*rit):" << ++(*rit) << std::endl;
 			++rit;
 		}
+
+		// std::cout << "\n>>> const iterator Test" << std::endl;
+		// MutantStack<int>::const_iterator cit = mstack.cbegin();
+		// MutantStack<int>::const_iterator cite = mstack.cend();
+		// while (cit != cite)
+		// {
+		// 	std::cout << "*cit:" << *cit << std::endl;
+		// 	// std::cout << "++(*cit):" << ++(*cit) << std::endl;
+		// 	++cit;
+		// }
 
 		std::stack<int> s(mstack);
 	}
@@ -103,6 +106,7 @@ int main()
 		while (it != ite)
 		{
 			std::cout << "*it:" << *it << std::endl;
+			std::cout << "++(*it):" << ++(*it) << std::endl;
 			++it;
 		}
 
@@ -127,23 +131,25 @@ int main()
 			++cait;
 		}
 
-		std::cout << "\n>>> const iterator Test" << std::endl;
-		MutantStack<int, std::vector<int> >::const_iterator cit = mstack.cbegin();
-		MutantStack<int, std::vector<int> >::const_iterator cite = mstack.cend();
-		while (cit != cite)
-		{
-			std::cout << "*cit:" << *cit << std::endl;
-			++cit;
-		}
-
 		std::cout << "\n>>> reverse iterator Test" << std::endl;
 		MutantStack<int, std::vector<int> >::reverse_iterator rit = mstack.rbegin();
 		MutantStack<int, std::vector<int> >::reverse_iterator rite = mstack.rend();
 		while (rit != rite)
 		{
 			std::cout << "*rit:" << *rit << std::endl;
+			std::cout << "++(*rit):" << ++(*rit) << std::endl;
 			++rit;
 		}
+
+		// std::cout << "\n>>> const iterator Test" << std::endl;
+		// MutantStack<int, std::vector<int> >::const_iterator cit = mstack.cbegin();
+		// MutantStack<int, std::vector<int> >::const_iterator cite = mstack.cend();
+		// while (cit != cite)
+		// {
+		// 	std::cout << "*cit:" << *cit << std::endl;
+		// 	// std::cout << "++(*cit):" << ++(*cit) << std::endl;
+		// 	++cit;
+		// }
 	}
 	std::cout << "\n<<< list Test >>>" << std::endl;
 	{
@@ -173,6 +179,7 @@ int main()
 		while (it != ite)
 		{
 			std::cout << "*it:" << *it << std::endl;
+			std::cout << "++(*it):" << ++(*it) << std::endl;
 			++it;
 		}
 
@@ -197,23 +204,25 @@ int main()
 			++cait;
 		}
 
-		std::cout << "\n>>> const iterator Test" << std::endl;
-		MutantStack<int, std::list<int> >::const_iterator cit = mstack.cbegin();
-		MutantStack<int, std::list<int> >::const_iterator cite = mstack.cend();
-		while (cit != cite)
-		{
-			std::cout << "*cit:" << *cit << std::endl;
-			++cit;
-		}
-
 		std::cout << "\n>>> reverse iterator Test" << std::endl;
 		MutantStack<int, std::list<int> >::reverse_iterator rit = mstack.rbegin();
 		MutantStack<int, std::list<int> >::reverse_iterator rite = mstack.rend();
 		while (rit != rite)
 		{
 			std::cout << "*rit:" << *rit << std::endl;
+			std::cout << "++(*rit):" << ++(*rit) << std::endl;
 			++rit;
 		}
+
+		// std::cout << "\n>>> const iterator Test" << std::endl;
+		// MutantStack<int, std::list<int> >::const_iterator cit = mstack.cbegin();
+		// MutantStack<int, std::list<int> >::const_iterator cite = mstack.cend();
+		// while (cit != cite)
+		// {
+		// 	std::cout << "*cit:" << *cit << std::endl;
+		// 	// std::cout << "++(*cit):" << ++(*cit) << std::endl;
+		// 	++cit;
+		// }
 	}
 	std::cout << std::endl;	
 	return 0;

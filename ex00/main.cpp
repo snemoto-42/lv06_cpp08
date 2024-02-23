@@ -53,8 +53,12 @@ int main(void)
 		std::cout << "\n>>> found the value" << std::endl;
 		try
 		{
-			std::list<int>::iterator const& it = easyfind(numbers, value);
+			--value;
+			it = easyfind(numbers, value);
 			std::cout << *it << " found" << std::endl;
+			std::cout << "before value:" << *it << std::endl;
+			++(*it);
+			std::cout << "after value:" << *it << std::endl;
 		}
 		catch(const std::exception& e)
 		{
@@ -63,7 +67,7 @@ int main(void)
 		std::cout << "\n>>> not found the value" << std::endl;
 		try
 		{
-			std::list<int>::iterator it = easyfind(numbers, -1);
+			it = easyfind(numbers, -1);
 			std::cout << value << " found at position " << std::distance(numbers.begin(), it) << std::endl;
 		}
 		catch(const std::exception& e)
