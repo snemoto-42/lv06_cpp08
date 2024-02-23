@@ -7,6 +7,8 @@ int main()
 	{
 		MutantStack<int> mstack;
 
+		std::cout << mstack.empty() << std::endl;
+
 		mstack.push(5);
 		mstack.push(17);
 		std::cout << mstack.top() << std::endl;
@@ -31,9 +33,16 @@ int main()
 			std::cout << *it << std::endl;
 			++it;
 		}
-		// std::stack<int> s(mstack);
-		// std::list<int> l(mstack);
+		std::stack<int> s(mstack);
 	}
+	// std::cout << "\n<<< vector Test >>>" << std::endl;
+	// {
+	// 	MutantStack<int, std::vector<int> > mstack;
+	// }
+	// std::cout << "\n<<< list Test >>>" << std::endl;
+	// {
+	// 	MutantStack<int, std::list<int> > mstack;
+	// }
 	std::cout << std::endl;	
 	return 0;
 }
