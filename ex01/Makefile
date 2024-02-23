@@ -3,14 +3,17 @@
 # **************************************************************************** #
 
 NAME	= test
-SRCS	= $(shell echo *.cpp)
+SRCS	= $(wildcard *.cpp)
 OBJDIR	= obj/
-OBJS	= $(addprefix $(OBJDIR),$(SRCS:.cpp=.o)) 
+OBJS	= $(addprefix $(OBJDIR),$(SRCS:.cpp=.o))
+DEPENDS = $(OBJS:.o=.d)
 
-CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic -Wconversion
-RM			= rm -f
-RMD			= rm -rf
+CXX			= 	c++
+CXXFLAGS	= 	-MMD -MP \
+				-Wall -Wextra -Werror \
+				-std=c++98 -pedantic \
+				-Wconversion
+RMD			= 	rm -rf
 
 # **************************************************************************** #
 # General Rules																   #
@@ -26,6 +29,8 @@ $(OBJDIR)%.o: %.cpp
 
 $(NAME): $(OBJS)
 		$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+
+-include $(DEPENDS)
 
 clean:
 		${RMD} $(OBJDIR)
